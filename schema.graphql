@@ -1,0 +1,19 @@
+type User {
+  _id: ID!
+  name: String!
+  posts: [Post]
+}
+
+type Post {
+  _id: ID!
+  title: String!
+  content: String!
+  author: User!
+  comments: [Comment]
+}
+
+type Comment {
+  _id: ID!
+  content: String!
+  post: Post!
+}
