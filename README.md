@@ -1,6 +1,6 @@
 # mongraphql
 
-`mongraphql` is an experimental way to create an executable graphql schema with mongodb CRUD resolvers from **only** graphl type definitions.
+[mongraphql](https://github.com/bherbruck/mongraphql) is an experimental project create an __instant__ mongodb graphql server (or schema with CRUD resolvers) from **only** graphql type definitions.
 
 # Motivation
 
