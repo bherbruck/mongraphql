@@ -19,10 +19,10 @@
     "@types/pluralize": "0.0.29",
     "nodemon": "^2.0.16",
     "ts-node": "^10.8.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   },
   "dependencies": {
-    "apollo-server": "^3.8.0",
+    "apollo-server": "^3.8.1",
     "camelcase": "^6.3.0",
     "change-case": "^4.1.2",
     "graphql": "^16.5.0",
