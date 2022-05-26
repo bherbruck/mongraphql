@@ -4,15 +4,19 @@
 
 ## Motivation
 
-I hate boilerplate. This is heavily inspired by [dgraph](https://dgraph.io/).
+I hate boilerplate. Graphql apis written in nodejs have **way** too much boilerplate. This is heavily inspired by [dgraph](https://dgraph.io/).
 
-## Goals
+## Features
 
 - npm package that can be used to augment an existing schema
 - instant graphql server from **only** a `.graphql` schema using:
   - npm executable package
   - docker image
-- graphql decorator support for things like auth and custom relations
+
+## Roadmap
+
+- add mongo query filters for graphql
+- add graphql decorator support for things like auth and custom relations
 
 ## Example
 
@@ -74,9 +78,9 @@ type Mutation {
   createComment(data: NonNullCommentInput): Comment
   createPost(data: NonNullPostInput): Post
   createUser(data: NonNullUserInput): User
-  deleteComment(_id: String): Boolean
-  deletePost(_id: String): Boolean
-  deleteUser(_id: String): Boolean
+  deleteComment(_id: String): Comment
+  deletePost(_id: String): Post
+  deleteUser(_id: String): User
   updateComment(_id: String, data: NullableCommentInput): Comment
   updatePost(_id: String, data: NullablePostInput): Post
   updateUser(_id: String, data: NullableUserInput): User
