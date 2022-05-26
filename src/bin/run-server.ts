@@ -7,7 +7,7 @@ async function main() {
   const { port, mongoUrl, schemaPath } = parseArgs(process.argv, {
     default: {
       port: 4000,
-    }
+    },
   })
 
   if (!mongoUrl || !schemaPath) {
