@@ -7,14 +7,14 @@ import {
 } from 'graphql'
 import { ObjectId } from 'mongodb'
 import { FieldResolver, list, nonNull } from 'nexus'
-import { Context } from '../context'
+import { Context } from '../types'
 import { removeFieldIds } from './remove-field-ids'
 import { withId } from './transform-id'
 
 export function buildFieldType(
   rootType: string,
   type: GraphQLOutputType,
-  next: typeof nonNull | typeof list = null
+  next: typeof nonNull | typeof list | undefined = undefined
 ): { type: any; resolve?: FieldResolver<any, any> } {
   if (isListType(type)) return buildFieldType(rootType, type.ofType, list)
   if (isNonNullType(type)) return buildFieldType(rootType, type.ofType, nonNull)
@@ -32,7 +32,7 @@ export function buildFieldType(
         }
         const data = (
           await db.collection(collectionName).find(query).toArray()
-        ).map((doc) => removeFieldIds(doc))
+        ).map((doc) => doc)
         return data
       },
     } as {

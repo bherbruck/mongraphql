@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  mongraphql:
+    build: .
+    environment:
+      - PORT=3000
+      - MONGO_URL=mongodb://mongo/graphql
+      - SCHEMA_PATH=/schema/schema.graphql
+      - NODE_ENV=development # defaults to production, no playground in production
+    volumes:
+      - ./example/schema:/schema
+    ports:
+      - 3000:3000
+
+  mongo:
+    image: mongo

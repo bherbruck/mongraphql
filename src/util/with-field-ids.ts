@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb'
 
-export function withFieldIds(data: object) {
+export function withFieldIds<T>(data: T) {
   if (data == undefined) return data
   return Object.entries(data).reduce((acc, [key, value]) => {
     const field =
@@ -8,5 +8,5 @@ export function withFieldIds(data: object) {
         ? { [key]: new ObjectId(value as string) }
         : { [key]: value }
     return { ...acc, ...field }
-  }, {})
+  }, {} as T)
 }
